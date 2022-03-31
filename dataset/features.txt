@@ -1,1 +1,7 @@
 apple
+penguin
+banana
+umbrella
+panda
+snowman
+basketball

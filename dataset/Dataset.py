@@ -11,10 +11,12 @@ class Dataset:
         default_url="https://storage.googleapis.com/quickdraw_dataset/full/numpy_bitmap",
         basedir="data/"):
 
+        print(name)
         if not os.path.exists(basedir):
             os.mkdir(basedir)
 
-        filename=f"{basedir}/{name}"
-        urlretrieve(f"{default_url}/{name}.npy", filename)
-        arr = np.load(filename)
-        print(arr)
+        filename=f"{basedir}/{name}.npy"
+
+        if not os.path.exists(filename):
+            urlretrieve(f"{default_url}/{name}.npy", filename)
+        self.data = np.load(filename)
